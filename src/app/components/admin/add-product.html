@@ -1,0 +1,38 @@
+<form>
+<div mat-dialog-content style="overflow: hidden">
+    <p>הוסף מוצר</p>
+    <mat-form-field appearance="fill">
+      <mat-label>שם המוצר</mat-label>
+      <input
+        matInput
+        name="name"
+        [(ngModel)]="product.name"
+        required/>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>מחיר</mat-label>
+      <input
+        type="number"
+        matInput
+        name="price"
+        [(ngModel)]="product.price"
+        required
+      />
+    </mat-form-field>
+    <br />
+    <label for="image">תמונה</label>
+    <input
+      type="file"
+      id="image"
+      name="image"
+      accept="image/*"
+      required
+      (change)="saveImage($event)"
+    />
+  </div>
+  <div mat-dialog-actions>
+    <br />
+    <button mat-raised-button [mat-dialog-close] cdkFocusInitial [disabled]="" (click)="add()">!אישור</button>
+  </div>
+</form>

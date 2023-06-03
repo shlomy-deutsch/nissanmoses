@@ -1,0 +1,16 @@
+<div mat-dialog-content>
+  <p>הכנס שם משתמש וסיסמה</p>
+  <mat-form-field appearance="fill">
+    <mat-label>שם משתמש</mat-label>
+    <input matInput [(ngModel)]="product.username">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>סיסמה</mat-label>
+    <input matInput [(ngModel)]="product.password">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="product.password" cdkFocusInitial (click)="send()">Ok</button>
+</div>

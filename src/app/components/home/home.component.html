@@ -1,0 +1,47 @@
+<img (click)="openDialog()" src="../../../assets/לוגו סופי משה.png" alt="">
+<br>
+<div class="btn">
+<button  mat-raised-button routerLink="/order" >הזמנת תור</button>
+<button mat-raised-button routerLink="/payment" >תשלום</button>
+<button mat-raised-button routerLink="/products" >לקניית מוצרים</button>
+<!-- <button mat-raised-button (click)="openDialog()" >מנהל</button> -->
+</div>
+<br>
+<div>
+  <video width="320" height="180" autoplay controls="true" src="../../../assets/WhatsApp Video 2023-05-08 at 17.56.41.mp4"></video>
+</div>
+<p>גלה את הסוד לשיער בריא ומבריק במספרה שלנו  המתמחה בבריאות השיער. צוות המומחים המסור שלנו יטפח לך את השיער שלך ויחזיר את הזוהר הטבעי שלו באמצעות טיפולים מותאמים אישית, מוצרי הזנה וייעוץ מומחים. אנו נעזור לך להשיג מראה מרשים של שיער מלא.</p>
+<div class="table" *ngIf="isTable">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> שם </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="barber">
+      <th mat-header-cell *matHeaderCellDef> ספר </th>
+      <td mat-cell *matCellDef="let element"> {{element.barber}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> תאריך </th>
+      <td mat-cell *matCellDef="let element"> {{element.date.slice(0, 10)}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef> שעה </th>
+      <td mat-cell *matCellDef="let element"> {{element.time.slice(0, 5)}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+
+  
+

@@ -1,0 +1,105 @@
+<button mat-raised-button [routerLink]="['/home']">חזרה לדף הבית</button>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#ffffff"
+  type="ball-clip-rotate-multiple"
+  ><mat-spinner></mat-spinner>
+</ngx-spinner>
+<br />
+<!-- <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button> -->
+<div class="table">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>שם</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="barber">
+      <th mat-header-cell *matHeaderCellDef>ספר</th>
+      <td mat-cell *matCellDef="let element">{{ element.barber }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>תאריך</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.date.slice(0, 10) }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef>שעה</th>
+      <td mat-cell *matCellDef="let element">{{ element.time.slice(0, 5) }}</td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>מחיקה</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button (click)="delete(element.id)" id="delete">מחיקה</button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+<br />
+<div class="cards">
+  <app-product-card
+    (click)="edit(p)"
+    *ngFor="let p of products"
+    [product]="p"
+    [isadmin]="true"
+  ></app-product-card>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
+<form (submit)="add()" class="form">
+  <div mat-dialog-content style="overflow: hidden">
+    <button mat-raised-button (click)="openDialog()">הוסף מוצר</button>
+    <br />
+
+    <div class="edit">
+      <p style="margin: inherit; margin-top: 5%">עריכת מוצר</p>
+      <mat-form-field appearance="fill">
+        <mat-label>שם המוצר</mat-label>
+        <input
+          matInput
+          name="name"
+          [(ngModel)]="product.name"
+          [(ngModel)]="editproduct.name"
+          [formControl]="nameControl"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>מחיר</mat-label>
+        <input
+          type="number"
+          matInput
+          name="price"
+          [(ngModel)]="product.price"
+          [(ngModel)]="editproduct.price"
+          [formControl]="priceControl"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <label for="image">תמונה</label>
+      <input
+        [formControl]="imageControl"
+        type="file"
+        id="image"
+        name="image"
+        accept="image/*"
+        required
+        (change)="saveImage($event)"
+      />
+    </div>
+    <div mat-dialog-actions>
+      <br />
+      <button mat-raised-button cdkFocusInitial [disabled]="">!אישור</button>
+    </div>
+  </div>
+</form>

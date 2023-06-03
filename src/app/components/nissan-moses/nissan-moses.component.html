@@ -1,0 +1,25 @@
+<div class="container">
+<img width="320" height="180" margin-top="-10%"
+ src="../../../assets/לוגו_ניסן_מוזס__2___1_-removebg-preview.png" alt="">
+<br>
+  <carousel class="carousel
+  " [isAnimated]="true" [showIndicators]="true">
+    <slide *ngFor="let image of products">
+
+      <img [src]="image.image" alt="Slide" id="img">
+      <div class="carousel-caption">
+        <!-- <h3>{{ image.title }}</h3>
+        <p>{{ image.description }}</p> -->
+    </div>
+    </slide>
+  </carousel>
+
+<br>
+<div class="btn">
+<button mat-raised-button routerLink="/home">לאתר בריאות השיער</button>
+<button mat-raised-button routerLink="/products">לקניית מוצרים</button>
+</div>
+<br>
+<p>ברוכים הבאים לסלון שלנו, שבו יופי ושלמות משתלבים זה בזה. בוא לחוות את הפינוק האולטימטיבי בזמן שצוות המומחים שלנו מפנק אותך בשירותים יוצאי דופן, לרבות תספורות מסוגננות, טיפולי שיער ופנים מרעננים. היכנס והירגע באווירה השלווה שלנו ותן לנו להחיות את השיער שלך. הזמינו את הפגישה שלכם עוד היום לחוויה של ממש.</p>
+<p>להתייעצות וכל שאלה חייגו: 0504444444 כתובתנו: רבי עקיבא 17 בני ברק</p>
+</div>

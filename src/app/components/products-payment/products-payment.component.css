@@ -1,0 +1,32 @@
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+width: 100%;
+  }
+  .table{
+    width: 50%;
+  }
+  td, th {
+    border: 1px solid black;
+    padding: 8px;
+    max-width: 50px;
+  }
+  img{
+    width: 100%;
+  }
+  .container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  @media (max-width: 767px) {
+  .table{
+    width: 100%
+  };
+  /* table{
+    width: 100% !important
+  }; */
+    }

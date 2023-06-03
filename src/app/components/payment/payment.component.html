@@ -1,0 +1,16 @@
+<div class="container">
+  <mat-form-field appearance="fill">
+    <mat-label>סכום לתשלום</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <google-pay-button
+    environment="TEST"
+    buttonType="buy"
+    buttonColor="black"
+    [paymentRequest]="paymentRequest"
+    (loadpaymentdata)="onLoadPaymentData($event)"
+    (error)="onError($event)"
+    [paymentAuthorizedCallback]="onPaymentDataAuthorized"
+  >
+  </google-pay-button>
+</div>

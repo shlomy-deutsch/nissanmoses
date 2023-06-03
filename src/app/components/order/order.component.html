@@ -1,0 +1,64 @@
+<button mat-raised-button routerLink="/home" style="margin-left: 33%;
+    margin-top: 6%;
+">חזרה לדף הבית</button>
+<div class="calender">
+<mat-card class="demo-inline-calendar-card">
+  <mat-calendar [(selected)]="selected" (click)="date(selected)" [minDate]="today"></mat-calendar>
+</mat-card>
+</div>
+<div class="btn">
+<div *ngIf="isBarbers">
+  <mat-chip-listbox aria-label="Fish selection">
+    <mat-chip-option
+      color="accent"
+      (click)="selectbarber(b)"
+      *ngFor="let b of barbers"
+    >
+      {{ b }}
+    </mat-chip-option>
+  </mat-chip-listbox>
+
+</div>
+<br>
+<div *ngIf="clicked" style="margin-left: 27px;">
+  <mat-chip-listbox aria-label="Fish selection">
+    <mat-chip-option
+      color="accent"
+      (click)="setTime(h)"
+      *ngFor="let h of hours"
+    >
+      {{ h }}    </mat-chip-option>
+    </mat-chip-listbox>
+</div>
+</div>
+<br>
+<div class="containermini">
+<form *ngIf="isFormVisible" class="form" (submit)="add()">
+  <mat-form-field appearance="fill">
+    <mat-label>שם</mat-label>
+    <input
+    name="name" id="name" [(ngModel)]="product.name" 
+      matInput
+      required
+    />
+    <br>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>טלפון</mat-label>
+  <input name="phone" [(ngModel)]="product.phone"
+  matInput
+  required
+/>
+<br>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>סוג התספורת</mat-label>
+  <input name="type" [(ngModel)]="product.type"
+  matInput
+  required
+/>
+</mat-form-field>
+<br>
+  <button mat-raised-button type="submit" style="width: max-content;">קבע תור</button>
+</form>
+</div>

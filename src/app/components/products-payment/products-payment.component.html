@@ -1,0 +1,78 @@
+<div class="container">
+<button mat-raised-button routerLink="/products">חזרה לקניית מוצרים</button>
+<br>
+<div class="table">
+    <table>
+        <tr>
+          <th>שם</th>
+          <th>מחיר</th>
+          <th>כמות</th>
+          <th>תמונה</th>
+        </tr>
+        <tr *ngFor="let p of selectedproducts">
+          <td >{{p.name}}</td>
+          <td>{{p.totalprice | currency: "ILS"}}</td>
+          <td>{{p.count}}</td>
+          <td><img [src]="p.image" /> </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    
+    <h3>סך הכל לתשלום {{totalPrice | currency: "ILS"}}</h3>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>שם </mat-label>
+        <input
+          matInput
+          name="name"
+          [(ngModel)]="body.name"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>כתובת</mat-label>
+        <input
+          type="text"
+          matInput
+          name="price"
+          [(ngModel)]="body.address"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>טלפון</mat-label>
+        <input
+          type="text"
+          matInput
+          name="price"
+          [(ngModel)]="body.phone"
+          required
+        />
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>אימייל</mat-label>
+        <input
+          matInput
+          name="name"
+          [(ngModel)]="body.email"
+          required
+        />
+      </mat-form-field>
+      <br>
+    <google-pay-button
+    environment="TEST"
+    buttonType="buy"
+    buttonColor="black"
+    [paymentRequest]="paymentRequest"
+    (loadpaymentdata)="onLoadPaymentData($event)"
+    (error)="onError($event)"
+    [paymentAuthorizedCallback]="onPaymentDataAuthorized"
+  >
+  </google-pay-button>
+  <br>
+  <button (click)="sendEmail()">אימייך</button>
+</div>

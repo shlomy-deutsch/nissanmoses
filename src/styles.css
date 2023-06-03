@@ -1,0 +1,21 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/* @import "~@coreui/coreui-pro/scss/coreui"; */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  /* background: linear-gradient(270deg, #e94bcc 12.02%, #FAEEBD 50.31%, #b23bd0 86.6%); */
+}
+
+@media (max-width: 767px) {
+  body {
+  }
+}
+/* button{background-color: #db9bde;} */
+/* button{background-color: #db9bde;} */
+/* .mat-mdc-raised-button{ */
+  /* background-color: #db9bde} */

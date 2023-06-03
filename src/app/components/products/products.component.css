@@ -1,0 +1,72 @@
+.cards{
+    max-width: 100%;
+    margin-left: 8%;
+
+}
+table {
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-left: 72%;
+  }
+  @media (max-width: 767px) {
+    table{
+      margin: auto;
+    }
+    button{
+      margin-left: 8% !important;
+    }
+    .cards{margin-left: 1%;}
+    }
+  button{
+    margin:auto;
+    /* background-color: #db9bde */
+  }
+  td, th {
+    border: 1px solid black;
+    padding: 8px;
+    max-width: 50px;
+  }
+  table img{
+    width: 100%;
+  }
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .demo-section {
+    margin-top: 16px;
+    margin: auto;
+    margin-top: 33px;
+  }
+  .material-icons.enlarged {
+    font-size: 48px; /* Enlarged font size */
+  }
+  
+  .example-sidenav{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+  }
+
+ ::ng-deep .mat-drawer-content {
+  overflow: visible !important
+
+ }
+#logo{
+  margin-top: -6%;
+  margin-left: 18%;
+  width: 125px;
+  height: 54px;
+}
+
+
+
+ 
+
+  
+

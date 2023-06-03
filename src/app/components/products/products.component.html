@@ -1,0 +1,108 @@
+<!-- <div class="container"> -->
+
+<button mat-raised-button routerLink="/" style="left: 23%; margin-top: 5%">
+  חזרה לדף הבית
+</button>
+<mat-drawer-container class="example-container">
+  <mat-drawer
+    #drawer
+    class="example-sidenav"
+    mode="over"
+    position="end"
+    style="width: 80%; display: flex"
+  >
+
+    <i
+      class="material-icons"
+      (click)="showFiller = !showFiller"
+      (click)="drawer.toggle()"
+      style="margin-left: 92%"
+      >close</i
+    >
+    <p>
+     קטגוריות
+    </p>
+    <p *ngIf="showFiller"></p>
+  </mat-drawer>
+  <!-- <div class="example-sidenav-content" style="margin-left: 76%; width: 20px;">  -->
+
+  <!-- </div> -->
+
+  <div class="demo-section" style="position: relative">
+    <button
+      (click)="drawer.toggle()"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      style="left: 72%; margin-right: -22%"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+   
+
+    <span
+      [matBadge]="badge"
+      style="margin-left: 17%; position: absolute; margin-top: 6%; z-index: 1"
+    ></span>
+    <span
+      [matBadge]="lovebadge"
+      style="margin-left: 30%; position: absolute; margin-top: 6%; z-index: 1"
+    ></span>
+    <img
+      src="../../../assets/shopping-bag.png"
+      alt=""
+      routerLink="/products-payment"
+      [matBadge]="badge"
+      matBadgeColor="warn"
+      style="margin-left: 9%; width: 28px"
+
+    />
+    <img
+      src="../../../assets/heart.png"
+      alt=""
+      style="width: 8%; margin-left: 5%; width: 28px;
+      margin-top: 1%"
+    />
+    <button
+      id="search"
+      style="
+        background: inherit;
+        border: aliceblue;
+        top: 24%;
+        left: 24%;
+        position: absolute;
+      "
+    >
+      <span
+        class="material-symbols-outlined"
+        style="
+          font-size: 37px;
+          font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;
+        "
+      >
+        search
+      </span>
+    </button>
+    <img id="logo" src="../../../assets/לוגו_ניסן_מוזס__2___1_-removebg-preview.png" alt="">
+  </div>
+  <br />
+  <div class="cards">
+    <app-product-card
+      *ngFor="let p of products; let i = index"
+      [product]="p"
+      [isclient]="true"
+    >
+    </app-product-card>
+  </div>
+</mat-drawer-container>
+
+<br />
+<button
+  id="btn"
+  mat-raised-button
+  routerLink="/products-payment"
+  style="margin-top: 10%; left: 30%"
+>
+  לתשלום
+</button>
+<!-- </div> -->
