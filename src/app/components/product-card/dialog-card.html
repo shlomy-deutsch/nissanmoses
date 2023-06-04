@@ -1,0 +1,38 @@
+<div class="dialog">
+  <p>{{product.name}}</p>
+  <img [src]="product.image" width="100%" />
+  <p>{{product.price | currency: "ILS"}}</p>
+  <div class="tools">
+  <button mat-icon-button color="primary" (click)="handleClick()" [mat-dialog-close]>
+    <mat-icon>add_shopping_cart</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    color="blue"
+    (click)="plus()"
+    style="margin-left: 18px"
+    id="btn"
+  >
+    <span class="material-icons"> add </span>
+  </button>
+  <input
+    id="input"
+    type="number"
+    [(ngModel)]="count"
+    min="1"
+    style="margin-left: 5px"
+  />
+  <button
+    mat-icon-button
+    color="blue"
+    (click)="minus()"
+    id="btn"
+    style="margin-left: 7px"
+  >
+    <span class="material-icons"> remove </span>
+  </button>  
+</div>
+<button mat-raised-button [mat-dialog-close] cdkFocusInitial [disabled]="">
+    סגור
+  </button>
+</div>

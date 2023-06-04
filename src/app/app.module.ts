@@ -22,7 +22,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { GooglePayButtonModule } from '@google-pay/button-angular';
 import {MatTableModule} from '@angular/material/table';
 import { TestComponent } from './components/test/test.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
+import { DialogCard, ProductCardComponent } from './components/product-card/product-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import { ProductsPaymentComponent } from './components/products-payment/products-payment.component';
@@ -36,7 +36,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatRippleModule} from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -53,7 +54,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     DialogOverviewExampleDialog1,
     ProductsPaymentComponent,
     NissanMosesComponent,
-
+    DialogCard
   ],
   imports: [
     BrowserModule,
@@ -81,7 +82,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatBadgeModule,
     MatSidenavModule,
     MatRippleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [ { provide:MAT_BUTTON_TOGGLE_DEFAULT_OPTIONS, useValue: { color: 'my-custom-color' }} ],
   bootstrap: [AppComponent],

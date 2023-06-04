@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mispara": {
+    "NissanMoses": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "mispara:build:production"
+              "browserTarget": "NissanMoses:build:production"
             },
             "development": {
-              "browserTarget": "mispara:build:development"
+              "browserTarget": "NissanMoses:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mispara:build"
+            "browserTarget": "NissanMoses:build"
           }
         },
         "test": {

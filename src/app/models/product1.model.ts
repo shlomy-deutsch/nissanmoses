@@ -3,8 +3,8 @@ class ProductModel1 {
     public name: string = '';
     public price: number = 0;
     public image?: FileList | any |undefined;
-  public count: number =0;
-  public totalprice: number =0;
+  public count: number = 0;
+  public totalprice: number = 0;
     public static convertToFormData(product: ProductModel1): FormData {
       const myFormData = new FormData();
       myFormData.append('name', product.name);

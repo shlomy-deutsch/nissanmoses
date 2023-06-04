@@ -63,6 +63,17 @@ table {
   width: 125px;
   height: 54px;
 }
+#category{
+  width: 60px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 7%;
+  object-fit: cover;
+}
+.cont{
+  display: flex;
+  align-items: center;
+}
 
 
 

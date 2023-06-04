@@ -23,34 +23,13 @@ img {
 #cart {
   width: 30px !important;
 }
-#input {
-  width: 30px;
-  margin-left: 23px;
-}
+
 .mat-mdc-icon-button.mat-mdc-button-base {
   width: 30px;
-}
-.tools {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-  align-content: space-between;
-  align-items: center;
 }
 #btn {
   margin-left: 18px;
   /* margin-right: 17px; */
-}
-.enlarged {
-  width: 100%;
-  /* position: fixed; */
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  /* position: fixed; */
-  /* position: absolute; */
-  position: absolute;
 }
 .filled-red {
   color: red;
@@ -94,3 +73,9 @@ min-height: 27px;
     float: none;
   }
   }
+#cdk-overlay-0{
+  max-width: 100vw!important
+}
+::ng-deep .cdk-overlay-pane{
+  max-width: 100vw !important
+}

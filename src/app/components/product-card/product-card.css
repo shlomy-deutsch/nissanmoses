@@ -1,0 +1,25 @@
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+#input {
+  width: 30px;
+  margin-left: 23px;
+  margin-top: 1px;
+}
+p {
+  font-size: x-large;
+  margin-top: 9px;
+}
+.dialog {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+}
