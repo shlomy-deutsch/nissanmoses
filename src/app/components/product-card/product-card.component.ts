@@ -74,13 +74,6 @@ export class ProductCardComponent implements OnInit {
       product.count = 1;
       product.totalprice = product.count * product.price;
       store.dispatch(loveproductAddedAction(product));
-      // const stor= store.getState().productsState.products;
-      // let some =0;
-      //   for (let i = 0; i < stor.length; i++) {
-      //     some += stor[i].totalprice;
-      // }
-      // store.dispatch(setTotal(some));
-      // this.chatService.send({ message: 'Hello World!' });
     } else {
       this.isClicked = false;
       store.dispatch(loveproductDeletedAction(product.id));
@@ -108,15 +101,31 @@ export class ProductCardComponent implements OnInit {
     }
   }
 
-  openDialog(product: ProductModel1): void {
-    selectedproduct = product;
-    const dialogRef = this.dialog.open(DialogCard, {
-      height: '60%',
-      width: '100%',
-    });
+  openDialog(product: ProductModel1, event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    const isButtonClicked = target.tagName === 'BUTTON';
+    const isIconClicked =
+      target.classList.contains('material-icons') ||
+      target.classList.contains('material-symbols-outlined');
+    const isLargeImageClicked = target.classList.contains('large-image');
 
-    dialogRef.afterClosed().subscribe((result) => {});
+    if (
+      !isButtonClicked &&
+      !isIconClicked &&
+      !isLargeImageClicked &&
+      this.isclient
+    ) {
+      selectedproduct = product;
+      const dialogRef = this.dialog.open(DialogCard, {
+        height: '60%',
+        width: '100%',
+      });
+
+      dialogRef.afterClosed().subscribe((result) => {});
+    }
   }
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 @Component({
   selector: 'dialog-card',
@@ -132,7 +141,14 @@ export class DialogCard {
     this.chatService.connect();
     this.chatService.socket.on('msg-from-server', (msg: any) => {});
     this.product = selectedproduct;
-    // this.count = this.product.count
+    const products = store.getState().productsState.products;
+    const desiredProductId = this.product.id;
+    const desiredProduct = products.find((product) => product.id === desiredProductId);
+       if (desiredProduct) {
+      this.count = desiredProduct.count;
+           } else {
+      this.count = 0;
+            }
   }
 
   plus() {
