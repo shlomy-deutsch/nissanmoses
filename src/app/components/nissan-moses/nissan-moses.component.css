@@ -11,7 +11,7 @@
         bottom: 0;
         left: 0;
         justify-content: flex-start;
-
+        overflow-x: auto;
       }
 
       video{
@@ -24,14 +24,12 @@
       }
       .carousel{
         width: 70%;
-        height: 50%;
+        height: 33%;
       }
       #img{
         width: 70%;
       }
       .btn{
-        margin-top: auto;
-        margin-top: auto;
         display: flex;
         justify-content: center;
         flex-wrap: nowrap;
@@ -54,6 +52,27 @@
         #img{
           width: 100%;
         }
+        .logos{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-content: center;
+          align-items: center;
+        }
+        .logos img {
+          width: 45%;
       }
+      .contact{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .contact img {
+        width: 20%;
+    }
+    }
      
     

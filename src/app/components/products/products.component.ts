@@ -63,4 +63,7 @@ private onMessageReceived() {
     this.badge = store.getState().productsState.products.length;
 }
 showFiller = false;
+openLink(url: string): void {
+  // window.open(url, '_blank');
+}
 }

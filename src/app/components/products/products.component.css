@@ -21,14 +21,14 @@ table {
     margin:auto;
     /* background-color: #db9bde */
   }
-  td, th {
+  /* td, th {
     border: 1px solid black;
     padding: 8px;
     max-width: 50px;
   }
   table img{
     width: 100%;
-  }
+  } */
   :host {
     display: flex;
     flex-direction: column;
@@ -64,15 +64,28 @@ table {
   height: 54px;
 }
 #category{
-  width: 60px;
+  width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-right: 7%;
+  margin-right: -7%;
   object-fit: cover;
 }
 .cont{
   display: flex;
   align-items: center;
+}
+.mat-mdc-form-field + .mat-mdc-form-field {
+  /* margin-left: 8px; */
+}
+mat-expansion-panel{
+  margin-bottom: 7%;
+
+}
+.mat-accordion{
+  width: 99%;
+}
+mat-expansion-panel-header{
+  padding: 0 0px
 }
 
 

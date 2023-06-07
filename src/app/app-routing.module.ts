@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'main', component: NissanMosesComponent },
 
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
 ];
 
 @NgModule({

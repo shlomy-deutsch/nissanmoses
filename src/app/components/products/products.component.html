@@ -1,8 +1,8 @@
 <!-- <div class="container"> -->
 
-<button mat-raised-button routerLink="/" style="left: 23%; margin-top: 5%">
+<!-- <button mat-raised-button routerLink="/" style="left: 23%; margin-top: 5%">
   חזרה לדף הבית
-</button>
+</button> -->
 <mat-drawer-container class="example-container">
   <mat-drawer
     #drawer
@@ -21,40 +21,150 @@
     <p style="display: flex; justify-content: center;">בחר קטגוריה</p>
     <hr>
     <mat-list>
-      <div class="cont">
-      <mat-list-item>ג'ל לשיער</mat-list-item>
-      <img src="../../../assets/Cera-Schwarzkopf-Flexwax-OSIS-85-ml.jpg" alt="" id="category">
+      <!-- <div class="cont"> -->
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                <mat-list-item>טיפולים מקצועיים</mat-list-item>
+                <img src="../../../assets/תספורת.jpg" id="category">
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+        <mat-list>
+              <div class="cont"> 
+                <mat-divider></mat-divider>
+                <br>
+                <mat-list-item routerLink="/order">טיפול שיער</mat-list-item>
+                <!-- <img src="../../../assets/הורדה- תספןרת פאנל.jpg" alt="" id="category"> -->
+                </div>
+               <hr>
+               <div class="cont"> 
+                <mat-divider></mat-divider>
+                <br>
+                <mat-list-item routerLink="/order">טיפול לייזר</mat-list-item>
+                <!-- <img src="../../../assets/הורדה- תספןרת פאנל.jpg" alt="" id="category"> -->
+                </div>
+               <hr>
+          </mat-list>
+          </mat-expansion-panel>
+        </mat-accordion>      
+        <mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-description>
+        <mat-list-item>תכשירים לשיער</mat-list-item>
+        <img src="../../../assets/Cera-Schwarzkopf-Flexwax-OSIS-85-ml.jpg" id="category">
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+<mat-list>
+  <div class="cont">
+    <mat-divider></mat-divider>
+    <br>
+    <mat-list-item>מברשות</mat-list-item>
+    <img src="../../../assets/5142-8555cb.jpg" alt="" id="category">
     </div>
-      <hr>
-      <div class="cont">
+    <hr>
+    <div class="cont">
+    <mat-divider></mat-divider>
+    <br>
+    <mat-list-item>אפטרשייב</mat-list-item>
+    <img src="../../../assets/Schwarzkopf-Osis+-Big-Blast-Volumizing-Gel-200ml-0074835.jpg" alt="" id="category">
+    </div>
+    <hr>
+    <div class="cont">
       <mat-divider></mat-divider>
       <br>
-      <mat-list-item>מברשות</mat-list-item>
-      <img src="../../../assets/5142-8555cb.jpg" alt="" id="category">
-      </div>
-      <hr>
-      <div class="cont">
-      <mat-divider></mat-divider>
-      <br>
-      <mat-list-item>אפטרשייב</mat-list-item>
-      <img src="../../../assets/Schwarzkopf-Osis+-Big-Blast-Volumizing-Gel-200ml-0074835.jpg" alt="" id="category">
+      <mat-list-item>שמפו</mat-list-item>
+      <img src="../../../assets/Schwarzkopf-3D-Men-Sion-Hair-Body-Shampoo-250ml.jpg" alt="" id="category">
       </div>
       <hr>
       <div class="cont">
         <mat-divider></mat-divider>
         <br>
-        <mat-list-item>שמפו</mat-list-item>
-        <img src="../../../assets/Schwarzkopf-3D-Men-Sion-Hair-Body-Shampoo-250ml.jpg" alt="" id="category">
+        <mat-list-item>דיאודורנט</mat-list-item>
+        <img src="../../../assets/11597700744-4-700.jpg" alt="" id="category">
+        </div>
+        <hr>
+  </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>      
+    <!-- </div> -->
+      <mat-accordion>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-description>
+      <mat-list-item>מכשירי חשמל לשיער</mat-list-item>
+      <img src="../../../assets/fan.jpg" id="category">
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+<mat-list>
+  <div class="cont">
+    <mat-divider></mat-divider>
+    <br>
+    <mat-list-item>מכונות גילוח</mat-list-item>
+    <!-- <img src="../../../assets/5142-8555cb.jpg" alt="" id="category"> -->
+    </div>
+    <hr>
+    <div class="cont">
+      <mat-divider></mat-divider>
+      <br>
+      <mat-list-item>מכונות תספורת</mat-list-item>
+      <!-- <img src="../../../assets/5142-8555cb.jpg" alt="" id="category"> -->
+      </div>
+      <hr>
+      <div class="cont">
+        <mat-divider></mat-divider>
+        <br>
+        <mat-list-item>מחליקי שיער</mat-list-item>
+        <!-- <img src="../../../assets/5142-8555cb.jpg" alt="" id="category"> -->
         </div>
         <hr>
         <div class="cont">
           <mat-divider></mat-divider>
           <br>
-          <mat-list-item>דיאודורנט</mat-list-item>
-          <img src="../../../assets/11597700744-4-700.jpg" alt="" id="category">
+          <mat-list-item>פן לשיער</mat-list-item>
+          <!-- <img src="../../../assets/5142-8555cb.jpg" alt="" id="category"> -->
           </div>
           <hr>
+  </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>      
+    <mat-accordion>
+<mat-expansion-panel hideToggle>
+<mat-expansion-panel-header>
+  <mat-panel-description>
+    <mat-list-item>עקוב אחרינו</mat-list-item>
+    <img src="../../../assets/-צור קשר.jpg" id="category">
+  </mat-panel-description>
+</mat-expansion-panel-header>
+<mat-list>
+  <div class="cont" (click)="openLink('https://www.instagram.com/p/CRQo6hMHjfe/?img_index=1')"> 
+    <mat-divider></mat-divider>
+    <br>
+        <mat-list-item>אינסטגרם</mat-list-item>
+        <img src="../../../assets/אינסטגרם.jpg" alt="" id="category" />
+    </div>
+   <hr>
+   <div class="cont" (click)="openLink('https://www.facebook.com/moshe.heiev.3/?locale=he_IL')"> 
+    <mat-divider></mat-divider>
+    <br>
+    <mat-list-item>פייסבוק</mat-list-item>
+    <img src="../../../assets/פייסבוק.jpg" alt="" id="category">
+    </div>
+   <hr>
+   <div class="cont" (click)="openLink('https://www.instagram.com/p/CRQo6hMHjfe/?img_index=1')"> 
+    <mat-divider></mat-divider>
+    <br>
+    <mat-list-item>טיקטוק</mat-list-item>
+    <img src="../../../assets/טיקטוק.jpg" alt="" id="category">
+    </div>
+   <hr>
+</mat-list>
+</mat-expansion-panel>
+</mat-accordion>      
+          <hr>
     </mat-list>
+
     <p *ngIf="showFiller"></p>
   </mat-drawer>
   <!-- <div class="example-sidenav-content" style="margin-left: 76%; width: 20px;">  -->
@@ -115,7 +225,7 @@
         search
       </span>
     </button>
-    <img id="logo" src="../../../assets/לוגו_ניסן_מוזס__2___1_-removebg-preview.png" alt="">
+    <img id="logo" src="../../../assets/לוגו_ניסן_מוזס__2___1_-removebg-preview.png" routerLink="/main">
   </div>
   <br />
   <div class="cards">

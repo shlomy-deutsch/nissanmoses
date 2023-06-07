@@ -38,6 +38,7 @@ import {MatRippleModule} from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import {MatListModule} from '@angular/material/list';
     MatRippleModule,
     MatCheckboxModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule
   ],
   providers: [ { provide:MAT_BUTTON_TOGGLE_DEFAULT_OPTIONS, useValue: { color: 'my-custom-color' }} ],
   bootstrap: [AppComponent],
