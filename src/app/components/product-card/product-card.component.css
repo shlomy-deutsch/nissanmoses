@@ -53,9 +53,7 @@ img {
 }
 
 .material-symbols-outlined.clicked {
-  /* Styles when clicked */
   color: red;
-  /* Add any other desired styles */
 }
 .mdc-card__actions{
 max-height: 30px;

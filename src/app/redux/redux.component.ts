@@ -1,6 +1,7 @@
 import ProductModel1 from '../models/product1.model';
 
 export class ProductsState {
+  public allProducts: ProductModel1[] = [];
   public products: ProductModel1[] = [];
   public loveproducts: ProductModel1[] = [];
   public total: number = 0;
@@ -18,11 +19,14 @@ export enum ProductActionType {
   setTotal = 'setTotal',
   setAuth = 'setAuth',
   setProducts = 'setProducts',
+  setAllProducts = 'setAllProducts',
+  setCategories = 'setCategories',
+  setBrands = 'setBrands',
   productAdded = 'productAdded',
   productDeleted = 'productDeleted',
   setloveProducts = 'setloveProducts',
   loveproductAdded = 'loveproductAdded',
-  loveproductDeleted = 'loveproductDeleted' // New action type
+  loveproductDeleted = 'loveproductDeleted'
 }
 
 export interface ProductAction {
@@ -41,7 +45,14 @@ export function setTotal(total: any): ProductAction {
 export function setProducts(products: ProductModel1): ProductAction {
   return { type: ProductActionType.setProducts, payload: products };
 }
-
+export function setAllProducts(allProducts: ProductModel1): ProductAction {
+  return { type: ProductActionType.setAllProducts, payload: allProducts };
+}
+export function setCategories(products: ProductModel1): ProductAction {
+  return { type: ProductActionType.setCategories, payload: products };
+}export function setBrands(products: ProductModel1): ProductAction {
+  return { type: ProductActionType.setBrands, payload: products };
+}
 export function productAddedAction(product: ProductModel1): ProductAction {
   return { type: ProductActionType.productAdded, payload: product };
 }
@@ -80,6 +91,18 @@ export function productsReducer(
       newState.products = action.payload;
       break;
 
+      case ProductActionType.setAllProducts:
+      newState.allProducts = action.payload;
+      break;
+      
+      case ProductActionType.setCategories:
+        newState.products = action.payload;
+        break;
+        case ProductActionType.setBrands:
+          newState.products = action.payload;
+          break;
+      
+
     case ProductActionType.productAdded: {
       const index = newState.products.findIndex((p: ProductModel1) => p.id === action.payload.id);
       if (index === -1) {
@@ -99,9 +122,7 @@ export function productsReducer(
         const existingProduct = newState.loveproducts[index];
         existingProduct.count = action.payload.count;
         existingProduct.totalprice = existingProduct.count * existingProduct.price;
-      }
-      console.log(newState.loveproducts);
-      
+      }      
       break;
     }
     

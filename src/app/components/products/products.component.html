@@ -11,23 +11,24 @@
     position="end"
     style="width: 80%; display: flex"
   >
-
     <i
       class="material-icons"
       (click)="showFiller = !showFiller"
       (click)="drawer.toggle()"
       style="margin-left: 92%"
       >close</i>
+      <div class="header">
     <p style="display: flex; justify-content: center;">בחר קטגוריה</p>
+    <p style="display: flex; justify-content: center; color: blue;" (click)="removefilter()">נקה סינון</p>
+  </div>
     <hr>
     <mat-list>
-      <!-- <div class="cont"> -->
         <mat-accordion>
           <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-description>
                 <mat-list-item>טיפולים מקצועיים</mat-list-item>
-                <img src="../../../assets/תספורת.jpg" id="category">
+                <img src="../../../assets/haurcut.jpg" id="category">
               </mat-panel-description>
             </mat-expansion-panel-header>
         <mat-list>
@@ -35,14 +36,14 @@
                 <mat-divider></mat-divider>
                 <br>
                 <mat-list-item routerLink="/order">טיפול שיער</mat-list-item>
-                <!-- <img src="../../../assets/הורדה- תספןרת פאנל.jpg" alt="" id="category"> -->
+                <img src="../../../assets/hair-styling.png" alt="" id="category">
                 </div>
                <hr>
                <div class="cont"> 
                 <mat-divider></mat-divider>
                 <br>
                 <mat-list-item routerLink="/order">טיפול לייזר</mat-list-item>
-                <!-- <img src="../../../assets/הורדה- תספןרת פאנל.jpg" alt="" id="category"> -->
+                <img src="../../../assets/laser.png" alt="" id="category">
                 </div>
                <hr>
           </mat-list>
@@ -53,38 +54,45 @@
     <mat-expansion-panel-header>
       <mat-panel-description>
         <mat-list-item>תכשירים לשיער</mat-list-item>
-        <img src="../../../assets/Cera-Schwarzkopf-Flexwax-OSIS-85-ml.jpg" id="category">
+        <img src="../../../assets/shampoo.jpg" id="category">
       </mat-panel-description>
     </mat-expansion-panel-header>
 <mat-list>
   <div class="cont">
     <mat-divider></mat-divider>
     <br>
-    <mat-list-item>מברשות</mat-list-item>
-    <img src="../../../assets/5142-8555cb.jpg" alt="" id="category">
+    <mat-list-item (click)="filterme('מברשות')">מברשות</mat-list-item>
+    <img src="../../../assets/hair-brush.png" alt="" id="category">
     </div>
     <hr>
     <div class="cont">
     <mat-divider></mat-divider>
     <br>
-    <mat-list-item>אפטרשייב</mat-list-item>
-    <img src="../../../assets/Schwarzkopf-Osis+-Big-Blast-Volumizing-Gel-200ml-0074835.jpg" alt="" id="category">
+    <mat-list-item (click)="filterme('ווקס')">ווקס</mat-list-item>
+    <img src="../../../assets/wax.png" alt="" id="category">
     </div>
     <hr>
     <div class="cont">
       <mat-divider></mat-divider>
       <br>
-      <mat-list-item>שמפו</mat-list-item>
-      <img src="../../../assets/Schwarzkopf-3D-Men-Sion-Hair-Body-Shampoo-250ml.jpg" alt="" id="category">
+      <mat-list-item (click)="filterme('גל לשיער')">ג'ל לשיער</mat-list-item>
+      <img src="../../../assets/cream.png" alt="" id="category">
       </div>
       <hr>
-      <div class="cont">
+    <div class="cont">
+      <mat-divider></mat-divider>
+      <br>
+      <mat-list-item (click)="filterme('שמפו')">שמפו</mat-list-item>
+      <img src="../../../assets/shampoo.png" alt="" id="category">
+      </div>
+      <hr>
+      <!-- <div class="cont">
         <mat-divider></mat-divider>
         <br>
-        <mat-list-item>דיאודורנט</mat-list-item>
-        <img src="../../../assets/11597700744-4-700.jpg" alt="" id="category">
+        <mat-list-item (click)="filterme('דיאודורנט')">דיאודורנט</mat-list-item>
+        <img src="../../../assets/diodorant.jpg" alt="" id="category">
         </div>
-        <hr>
+        <hr> -->
   </mat-list>
   </mat-expansion-panel>
 </mat-accordion>      
@@ -94,7 +102,7 @@
   <mat-expansion-panel-header>
     <mat-panel-description>
       <mat-list-item>מכשירי חשמל לשיער</mat-list-item>
-      <img src="../../../assets/fan.jpg" id="category">
+      <img src="../../../assets/electric.png" id="category">
     </mat-panel-description>
   </mat-expansion-panel-header>
 <mat-list>
@@ -102,28 +110,28 @@
     <mat-divider></mat-divider>
     <br>
     <mat-list-item>מכונות גילוח</mat-list-item>
-    <!-- <img src="../../../assets/5142-8555cb.jpg" alt="" id="category"> -->
+    <img src="../../../assets/machine.png" alt="" id="category">
     </div>
     <hr>
     <div class="cont">
       <mat-divider></mat-divider>
       <br>
       <mat-list-item>מכונות תספורת</mat-list-item>
-      <!-- <img src="../../../assets/5142-8555cb.jpg" alt="" id="category"> -->
+      <img src="../../../assets/electric-shaver.png" alt="" id="category">
       </div>
       <hr>
       <div class="cont">
         <mat-divider></mat-divider>
         <br>
         <mat-list-item>מחליקי שיער</mat-list-item>
-        <!-- <img src="../../../assets/5142-8555cb.jpg" alt="" id="category"> -->
+        <img src="../../../assets/hair-straightener.png" alt="" id="category">
         </div>
         <hr>
         <div class="cont">
           <mat-divider></mat-divider>
           <br>
           <mat-list-item>פן לשיער</mat-list-item>
-          <!-- <img src="../../../assets/5142-8555cb.jpg" alt="" id="category"> -->
+          <img src="../../../assets/hairdryer.png" alt="" id="category">
           </div>
           <hr>
   </mat-list>
@@ -134,32 +142,16 @@
 <mat-expansion-panel-header>
   <mat-panel-description>
     <mat-list-item>עקוב אחרינו</mat-list-item>
-    <img src="../../../assets/-צור קשר.jpg" id="category">
+    <img src="../../../assets/follow-us.png" id="category">
   </mat-panel-description>
 </mat-expansion-panel-header>
 <mat-list>
-  <div class="cont" (click)="openLink('https://www.instagram.com/p/CRQo6hMHjfe/?img_index=1')"> 
-    <mat-divider></mat-divider>
-    <br>
-        <mat-list-item>אינסטגרם</mat-list-item>
-        <img src="../../../assets/אינסטגרם.jpg" alt="" id="category" />
-    </div>
-   <hr>
-   <div class="cont" (click)="openLink('https://www.facebook.com/moshe.heiev.3/?locale=he_IL')"> 
-    <mat-divider></mat-divider>
-    <br>
-    <mat-list-item>פייסבוק</mat-list-item>
-    <img src="../../../assets/פייסבוק.jpg" alt="" id="category">
-    </div>
-   <hr>
-   <div class="cont" (click)="openLink('https://www.instagram.com/p/CRQo6hMHjfe/?img_index=1')"> 
-    <mat-divider></mat-divider>
-    <br>
-    <mat-list-item>טיקטוק</mat-list-item>
-    <img src="../../../assets/טיקטוק.jpg" alt="" id="category">
-    </div>
-   <hr>
-</mat-list>
+  <div class="cont">
+        <img src="../../../assets/אינסטגרם.jpg" alt="" id="category" (click)="openLink('https://www.instagram.com/p/CRQo6hMHjfe/?img_index=1')"/>
+    <img src="../../../assets/פייסבוק.jpg" alt="" id="category" (click)="openLink('https://www.facebook.com/moshe.heiev.3/?locale=he_IL')">
+    <img src="../../../assets/טיקטוק.jpg" alt="" id="category" (click)="openLink('https://www.instagram.com/p/CRQo6hMHjfe/?img_index=1')">
+  </div>
+  </mat-list>
 </mat-expansion-panel>
 </mat-accordion>      
           <hr>
@@ -177,18 +169,20 @@
       mat-icon-button
       class="example-icon"
       aria-label="Example icon-button with menu icon"
-      style="left: 77%; margin-right: -22%"
+      style="left: 77%;
+      margin-right: -22%;
+      top: 3px;"
     >
       <mat-icon>menu</mat-icon>
     </button>
    
     <span
       [matBadge]="badge"
-      style="margin-left: 17%; position: absolute; margin-top: 6%; z-index: 1"
+      style="margin-left: 14%; position: absolute; margin-top: 7%; z-index: 1"
     ></span>
     <span
       [matBadge]="lovebadge"
-      style="margin-left: 30%; position: absolute; margin-top: 6%; z-index: 1"
+      style="margin-left: 26%; position: absolute; margin-top: 7%; z-index: 1"
     ></span>
     <img
       src="../../../assets/shopping-bag.png"
@@ -196,35 +190,44 @@
       routerLink="/products-payment"
       [matBadge]="badge"
       matBadgeColor="warn"
-      style="margin-left: 9%; width: 28px"
+      style="margin-left: 8%;
+      width: 21px;
+      margin-top: 1%;"
 
     />
-    <img
+    <img (click)="displayloved()" *ngIf="!displaylove"
       src="../../../assets/heart.png"
-      alt=""
-      style="width: 8%; margin-left: 5%; width: 28px;
+      style="margin-left: 5%; width: 21px;
       margin-top: 1%"
+      [matTooltip]="!nolove ? 'הצג מוצרים אהובים' : 'אין מוצרים אהובים להצגה'"/>
+    <img (click)="displayloved()" *ngIf="displaylove"
+      src="../../../assets/redheart.jpg"
+      style="margin-left: 3%;
+      width: 34px;
+      margin-top: 2%;"
     />
-    <button
+    <!-- <p *ngIf="nolove" style="margin-left: 27%;">אין עדיין מוצרים אהובים להצגה</p> -->
+
+    <!-- <button
       id="search"
       style="
         background: inherit;
         border: aliceblue;
-        top: 24%;
-        left: 24%;
+        top: 28%;
+        left: 20%;
         position: absolute;
       "
     >
       <span
         class="material-symbols-outlined"
         style="
-          font-size: 37px;
+          font-size: 28px;
           font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;
         "
       >
         search
       </span>
-    </button>
+    </button> -->
     <img id="logo" src="../../../assets/לוגו_ניסן_מוזס__2___1_-removebg-preview.png" routerLink="/main">
   </div>
   <br />

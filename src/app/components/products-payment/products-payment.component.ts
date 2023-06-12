@@ -23,8 +23,6 @@ export class ProductsPaymentComponent {
   ngOnInit(): void {
     this.selectedproducts= store.getState().productsState.products;
   this.totalPrice = store.getState().productsState.total;
-
-
 }
 
 
@@ -33,8 +31,6 @@ async sendEmail() {
   this.body.some= this.totalPrice;
   let filteredArray = this.selectedproducts.map(product => ({ name: product.name, count: product.count }));
   this.body.products = filteredArray;
-console.log(this.body);
-
     const url = 'https://mispara.herokuapp.com/api/mail';
   await this.http.post(url, { recipient: 'recipient-email@example.com', subject: 'לקוח קנה מוצרים', body: this.body }).subscribe(
         (response) => console.log(response),
@@ -94,12 +90,14 @@ onPaymentDataAuthorized: google.payments.api.PaymentAuthorizedHandler = (
   paymentData
 ) => {
   console.log('payment authorized', paymentData);
+  this.sendEmail()
   return {
     transactionState: 'SUCCESS',
   };
 };
 
 onError = (event: ErrorEvent): void => {
+  alert("משהו השתבש ולא התבצע תשלום")
   console.error('error', event.error);
 };
 }

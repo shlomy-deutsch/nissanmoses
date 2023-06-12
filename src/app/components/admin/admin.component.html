@@ -44,7 +44,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
-<br />
+<button mat-raised-button (click)="openDialog()">הוסף מוצר</button>
 <div class="cards">
   <app-product-card
     (click)="edit(p)"
@@ -55,10 +55,7 @@
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////// -->
 <form (submit)="add()" class="form">
-  <div mat-dialog-content style="overflow: hidden">
-    <button mat-raised-button (click)="openDialog()">הוסף מוצר</button>
-    <br />
-
+  <div mat-dialog-content>
     <div class="edit">
       <p style="margin: inherit; margin-top: 5%">עריכת מוצר</p>
       <mat-form-field appearance="fill">
@@ -85,6 +82,50 @@
           required
         />
       </mat-form-field>
+    <mat-form-field>
+      <mat-label>קטגוריה</mat-label>
+      <mat-select [(ngModel)]="product.category" [(value)]="product.category" [formControl]="categoryControl">
+        <mat-option *ngFor="let category of categories" [value]="category">
+        {{ category }}
+        </mat-option>
+        <mat-option (click)="addcategory()">
+        הוסף קטגוריה חדשה
+        </mat-option>
+        </mat-select>  
+      </mat-form-field>      
+      <br />
+      <mat-form-field appearance="fill" *ngIf="addcat==true">
+        <mat-label>קטגוריה</mat-label>
+        <input
+          matInput
+          name="category"
+          [(ngModel)]="product.category"
+          [(ngModel)]="editproduct.category"
+          required
+        />
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <mat-label>מותג</mat-label>
+        <mat-select [(ngModel)]="product.brand" [formControl]="brandControl">
+          <mat-option *ngFor="let brand of brands" [value]="brand">
+            {{ brand }}
+          </mat-option>
+          <mat-option (click)="addbrand()">
+            הוסף מותג חדש
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <!-- <br />
+      <mat-form-field appearance="fill" *ngIf="addbran==true">
+        <mat-label>מותג</mat-label>
+        <input
+          matInput
+          name="brand"
+          [(ngModel)]="product.brand"
+          [(ngModel)]="editproduct.brand"
+          required
+        />
+      </mat-form-field> -->
       <br />
       <label for="image">תמונה</label>
       <input

@@ -11,12 +11,18 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
+import store from 'app/redux/store';
+import { setAllProducts } from 'app/redux/redux.component';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
+  public addcat:Boolean = false;
+  public addbran:Boolean = false;
+  public categories:string[] = [];
+  public brands:string[] = [];
   isedit: boolean = false;
   displayedColumns: string[] = ['name', 'barber', 'date', 'time', 'delete'];
   dataSource: { name: any; barber: any; date: any; time: any; id: any }[] = [];
@@ -27,6 +33,9 @@ export class AdminComponent implements OnInit {
   public nameControl: FormControl;
   public priceControl: FormControl;
   public imageControl: FormControl;
+  public brandControl: FormControl;
+  public categoryControl: FormControl;
+
   myFormGroup: FormGroup | any;
 
   constructor(
@@ -40,12 +49,16 @@ export class AdminComponent implements OnInit {
       this.nameControl = new FormControl('', Validators.required);
       this.priceControl = new FormControl('', Validators.required);
       this.imageControl = new FormControl('', Validators.required);
+      this.categoryControl = new FormControl('', Validators.required);
+      this.brandControl = new FormControl('', Validators.required);
 
-      this.myFormGroup = new FormGroup({
-        nameControl: this.nameControl,
-        priceControl: this.nameControl,
-        imageControl: this.nameControl,
-      });
+      // this.myFormGroup = new FormGroup({
+      //   nameControl: this.nameControl,
+      //   priceControl: this.nameControl,
+      //   imageControl: this.nameControl,
+      //   categoryControl: this.nameControl,
+      //   brandControl: this.nameControl,
+      // });
     }
   }
   openSnackBar(message: string, action: string) {
@@ -54,7 +67,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.injector.runInContext(() => {
-      inject(ChatService) // fine
+      inject(ChatService)
   });
     this.chatService.connect();
     this.chatService.socket.on('msg-from-server', (msg: any) => {
@@ -64,12 +77,21 @@ export class AdminComponent implements OnInit {
     this.getAllProducts();
     // this.openSnackBar("good", "close");
   }
-
   public async getAllProducts() {
     this.spinnerService.show();
     this.products = await this.http
       .get<ProductModel1[]>('https://mispara.herokuapp.com/api/products')
       .toPromise();
+      store.dispatch(setAllProducts(this.products))      
+      this.products.forEach((product:any) => {
+        if (!this.categories.includes(product.category)) {
+          this.categories.push(product.category);
+        }});        
+        this.products.forEach((product:any) => {
+          if (!this.brands.includes(product.brand)) {
+            this.brands.push(product.brand);
+          }});
+          
     this.spinnerService.hide();
   }
 
@@ -129,25 +151,37 @@ export class AdminComponent implements OnInit {
       this.isedit = false;
       this.nameControl.setValue('');
       this.priceControl.setValue('');
+      this.categoryControl.setValue('');
+     this.categoryControl.setValue('');
+     this.addcat = false;
+     this.addbran = false
     }
   }
 
   public async edit(product: any) {
     this.editproduct = product;
     this.isedit = true;
+    this.categoryControl.setValue(product.category);
+    this.brandControl.setValue(product.brand);
+
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog1, {});
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
-}
 
+  addcategory(){this.addcat = true}
+  addbrand(){this.addbran = true}
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: './add-product.html',
 })
 export class DialogOverviewExampleDialog1 {
+  public categories:string[] = [];
+  public brands:string[] = [];
   public product = new ProductModel1();
   public chatService: ChatService = new ChatService();
 
@@ -158,6 +192,16 @@ export class DialogOverviewExampleDialog1 {
   ngOnInit(): void {
     this.chatService.connect();
     this.chatService.socket.on('msg-from-server', (msg: any) => {});
+    const products = store.getState().productsState.allProducts;
+
+products.forEach(product => {
+  if (!this.categories.includes(product.category)) {
+    this.categories.push(product.category);
+  }});
+  // products.forEach(product => {
+  //   if (!this.brands.includes(product.brand)) {
+  //     this.brands.push(product.brand);
+  //   }});    
   }
 
   public saveImage(args: Event): void {

@@ -4,6 +4,7 @@ import { ChatService } from '../../../services/chat.service';
 import ProductModel1 from '../../models/product1.model';
 import store from 'app/redux/store';
 import { Unsubscribe } from 'redux';
+import { setAllProducts, setCategories } from 'app/redux/redux.component';
 
 @Component({
   selector: 'app-products',
@@ -12,7 +13,9 @@ import { Unsubscribe } from 'redux';
 })
 export class ProductsComponent implements OnInit {
   private unsubscribeMe: Unsubscribe | any;
-  public products?: ProductModel1[];
+  public nolove: Boolean = false;
+  public displaylove: Boolean = false;
+  public products: ProductModel1[] |any;
   public chatService: ChatService = new ChatService();
   public selectedproducts?: ProductModel1[];
   public numberofselectedproducts: number =0
@@ -32,8 +35,8 @@ export class ProductsComponent implements OnInit {
 
     });
 this.getAllProducts()
-this.selectedproducts= store.getState().productsState.products;
-this.numberofselectedproducts =this.selectedproducts.length
+this.selectedproducts = store.getState().productsState.products;
+this.numberofselectedproducts = this.selectedproducts.length
 
 this.chatService.connect();
 this.chatService.socket.on('msg-from-server', (msg: any) => {
@@ -42,21 +45,11 @@ this.chatService.socket.on('msg-from-server', (msg: any) => {
 
   }
   
-  enlargeImage(event: MouseEvent, index: number) {
-    const card = event.currentTarget as HTMLElement;
-    const image = card.querySelector('img');
-  
-    if (image) {
-      image.classList.toggle('enlarged');
-    }
-    event.stopPropagation(); // Optional, prevents event bubbling
-  }
-  
-  
   public async getAllProducts() {
     const response = await this.http.get<ProductModel1[]>("https://mispara.herokuapp.com/api/products").toPromise();
-   this.products = response
-    
+   this.products = response;
+    store.dispatch(setAllProducts(this.products))
+
 }
 private onMessageReceived() {
     this.getAllProducts();
@@ -65,5 +58,28 @@ private onMessageReceived() {
 showFiller = false;
 openLink(url: string): void {
   // window.open(url, '_blank');
+}
+
+filterme(params: string){
+ const allproducts =  store.getState().productsState.allProducts;
+ const filteredProducts = allproducts.filter(product => product.category === params);
+ this.products = filteredProducts; 
+}
+removefilter(){
+  this.products = store.getState().productsState.allProducts;
+}
+
+displayloved(){
+  if (this.displaylove == false){
+    const loveprod = store.getState().productsState.loveproducts;
+    if (loveprod.length ==0){return}
+  this.products = loveprod
+  
+  this.displaylove = true}
+else{
+  this.products = store.getState().productsState.allProducts
+  this.displaylove = false
+  this.nolove= false
+}
 }
 }

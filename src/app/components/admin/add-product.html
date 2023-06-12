@@ -20,6 +20,22 @@
         required
       />
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>קטגוריה</mat-label>
+      <mat-select [(ngModel)]="product.category">
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- <mat-form-field>
+      <mat-label>מותג</mat-label>
+      <mat-select [(ngModel)]="product.brand">
+        <mat-option *ngFor="let brand of brands" [value]="brand">
+          {{ brand }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
     <br />
     <label for="image">תמונה</label>
     <input
@@ -30,7 +46,7 @@
       required
       (change)="saveImage($event)"
     />
-  </div>
+   </div>
   <div mat-dialog-actions>
     <br />
     <button mat-raised-button [mat-dialog-close] cdkFocusInitial [disabled]="" (click)="add()">!אישור</button>
