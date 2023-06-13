@@ -53,7 +53,7 @@
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-description>
-        <mat-list-item>תכשירים לשיער</mat-list-item>
+        <mat-list-item (click)="filterme('תכשירים לשיער')">תכשירים לשיער</mat-list-item>
         <img src="../../../assets/shampoo.jpg" id="category">
       </mat-panel-description>
     </mat-expansion-panel-header>
@@ -86,22 +86,14 @@
       <img src="../../../assets/shampoo.png" alt="" id="category">
       </div>
       <hr>
-      <!-- <div class="cont">
-        <mat-divider></mat-divider>
-        <br>
-        <mat-list-item (click)="filterme('דיאודורנט')">דיאודורנט</mat-list-item>
-        <img src="../../../assets/diodorant.jpg" alt="" id="category">
-        </div>
-        <hr> -->
   </mat-list>
   </mat-expansion-panel>
 </mat-accordion>      
-    <!-- </div> -->
       <mat-accordion>
 <mat-expansion-panel hideToggle>
   <mat-expansion-panel-header>
     <mat-panel-description>
-      <mat-list-item>מכשירי חשמל לשיער</mat-list-item>
+      <mat-list-item (click)="filterme('מכשירי חשמל לשיער')">מכשירי חשמל לשיער</mat-list-item>
       <img src="../../../assets/electric.png" id="category">
     </mat-panel-description>
   </mat-expansion-panel-header>
@@ -109,28 +101,28 @@
   <div class="cont">
     <mat-divider></mat-divider>
     <br>
-    <mat-list-item>מכונות גילוח</mat-list-item>
+    <mat-list-item (click)="filterme('מכונות גילוח')">מכונות גילוח</mat-list-item>
     <img src="../../../assets/machine.png" alt="" id="category">
     </div>
     <hr>
     <div class="cont">
       <mat-divider></mat-divider>
       <br>
-      <mat-list-item>מכונות תספורת</mat-list-item>
+      <mat-list-item (click)="filterme('מכונות תספורת')">מכונות תספורת</mat-list-item>
       <img src="../../../assets/electric-shaver.png" alt="" id="category">
       </div>
       <hr>
       <div class="cont">
         <mat-divider></mat-divider>
         <br>
-        <mat-list-item>מחליקי שיער</mat-list-item>
+        <mat-list-item (click)="filterme('מחליקי שיער')">מחליקי שיער</mat-list-item>
         <img src="../../../assets/hair-straightener.png" alt="" id="category">
         </div>
         <hr>
         <div class="cont">
           <mat-divider></mat-divider>
           <br>
-          <mat-list-item>פן לשיער</mat-list-item>
+          <mat-list-item (click)="filterme('פן לשיער')">פן לשיער</mat-list-item>
           <img src="../../../assets/hairdryer.png" alt="" id="category">
           </div>
           <hr>

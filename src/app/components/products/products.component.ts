@@ -62,8 +62,16 @@ openLink(url: string): void {
 
 filterme(params: string){
  const allproducts =  store.getState().productsState.allProducts;
- const filteredProducts = allproducts.filter(product => product.category === params);
- this.products = filteredProducts; 
+ if (params === 'תכשירים לשיער') {
+  const filteredProducts = allproducts.filter(product => product.category === 'שמפו' || product.category === 'גל לשיער' || product.category === 'ווקס' || product.category === 'מברשות');
+  this.products = filteredProducts;
+} else if (params === 'מכשירי חשמל לשיער') {
+  const filteredProducts = allproducts.filter(product => product.category === 'מכונות גילוח' || product.category === 'מכונות תספורת' || product.category === 'פן לשיער' || product.category === 'מחליקי שיער');
+  this.products = filteredProducts;
+} else {
+  const filteredProducts = allproducts.filter(product => product.category === params);
+  this.products = filteredProducts;
+}
 }
 removefilter(){
   this.products = store.getState().productsState.allProducts;

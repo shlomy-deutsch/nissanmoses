@@ -1,13 +1,9 @@
 <form>
-<div mat-dialog-content style="overflow: hidden">
-    <p>הוסף מוצר</p>
+  <div mat-dialog-content style="overflow: hidden; margin-left: 15%">
+    <p style="margin-left: 26%">הוסף מוצר</p>
     <mat-form-field appearance="fill">
       <mat-label>שם המוצר</mat-label>
-      <input
-        matInput
-        name="name"
-        [(ngModel)]="product.name"
-        required/>
+      <input matInput name="name" [(ngModel)]="product.name" required />
     </mat-form-field>
     <br />
     <mat-form-field appearance="fill">
@@ -46,9 +42,18 @@
       required
       (change)="saveImage($event)"
     />
-   </div>
+  </div>
   <div mat-dialog-actions>
     <br />
-    <button mat-raised-button [mat-dialog-close] cdkFocusInitial [disabled]="" (click)="add()">!אישור</button>
+    <button
+      mat-raised-button
+      [mat-dialog-close]
+      cdkFocusInitial
+      [disabled]=""
+      (click)="add()"
+      style="margin-left: 37%"
+    >
+      !אישור
+    </button>
   </div>
 </form>
