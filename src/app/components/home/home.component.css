@@ -10,13 +10,13 @@
   .mat-column-name {
     height: 100px;
    } 
-  .table{
+  /* .table{
     position: absolute;
     bottom: -22px;
     right: 0;
     width: 32%;
-  } 
-  @media (max-width: 767px) {
+  }  */
+  /* @media (max-width: 767px) { */
     .mat-mdc-table{
       align-items: center;
     }
@@ -26,14 +26,14 @@
       right: 0;
       width: 100%;
     } 
-  }
+  /* } */
   
   img {
     position: absolute;
     width: 350px;
     height: 350px;
     left: 50%;
-    top: 26%;
+    top: 71%;
     transform: translate(-50%, -50%)
   }
   

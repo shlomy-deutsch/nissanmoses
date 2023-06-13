@@ -55,7 +55,7 @@ margin-left: 2%;
 
 
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) { */
   .calender {
     width: 100%;
     float: none;
@@ -83,12 +83,13 @@ margin-left: 2%;
     flex-direction: column;
     align-items: center;
   }
-  #logo{
-    margin-top: 1%;
-    margin-left: 22%;
-    width: 207px;
-    height: 93px;
-  }
+  
+/* } */
+#logo{
+  margin-top: 1%;
+  margin-left: 22%;
+  width: 207px;
+  height: 93px;
 }
 
 

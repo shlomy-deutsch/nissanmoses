@@ -32,7 +32,7 @@
         align-items: baseline;
         margin-right: -5%;
     }
-      @media (max-width: 767px) {
+      /* @media (max-width: 767px) { */
         video{
           width:80%
         }
@@ -67,6 +67,6 @@
     h2{
       margin-left: 40%!important;;
     }
-    }
+    /* } */
      
     

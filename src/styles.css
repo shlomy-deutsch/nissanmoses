@@ -3,13 +3,24 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 html, body {
-  height: 100%;
   margin: 0;
+  /* background-color: #f9f4e7; */
+
 }
 
-body {
-  /* background: linear-gradient(270deg, #e94bcc 12.02%, #FAEEBD 50.31%, #b23bd0 86.6%); */
+@media only screen and (min-width: 380px) {
+  /* Set the minimum width to trigger the desktop styles */
+  body {
+    width: 380px;
+    height: 800px;
+    /* position: absolute; */
+    margin: auto;
+    /* transform: translate(-50%, -50%);  */
+   }
 }
+/* body { */
+  /* background: linear-gradient(270deg, #e94bcc 12.02%, #FAEEBD 50.31%, #b23bd0 86.6%); */
+/* } */
 
 @media (max-width: 767px) {
   body {
