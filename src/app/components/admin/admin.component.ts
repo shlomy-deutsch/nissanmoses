@@ -185,9 +185,11 @@ export class DialogOverviewExampleDialog1 {
   public product = new ProductModel1();
   public chatService: ChatService = new ChatService();
 
+
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog1>,
-    private http: HttpClient
+    private http: HttpClient,
+    private spinnerService: NgxSpinnerService
   ) {}
   ngOnInit(): void {
     this.chatService.connect();
@@ -217,8 +219,13 @@ products.forEach(product => {
       )
       .toPromise();
 
-    this.chatService.send({ message: 'Hello World!' });
-  }
+      this.spinnerService.show();
+
+      setTimeout(() => {
+        this.spinnerService.hide();
+        this.chatService.send({ message: 'Hello World!' });
+
+      }, 1000);  }
   onNoClick(): void {
     this.dialogRef.close();
   }

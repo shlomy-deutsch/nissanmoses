@@ -138,7 +138,7 @@ export class OrderComponent implements OnInit {
       const updatedProduct = await this.http
         .post<ProductModel>('https://mispara.herokuapp.com/api/appointment', this.product)
         .toPromise();
-      alert('good');
+      alert('התור נקבע בהצלחה!!');
       this.myRouter.navigateByUrl('/home');
       this.chatService.send({ message: 'Hello World!' });
     } catch (err) {
